@@ -1,19 +1,12 @@
 import json
 
+
 def filter_users_by_name(name):
-    # Datei öffnen
     with open("users.json", "r") as file:
         users = json.load(file)
 
-    # Eine leere Liste für die Ergebnisse erstellen
-    filtered_users = []
+    filtered_users = [user for user in users if user["name"].lower() == name.lower()]
 
-    # Jeden Nutzer einzeln prüfen (Standard-Schleife)
-    for user in users:
-        if user["name"].lower() == name.lower():
-            filtered_users.append(user)
-
-    # Ergebnisse ausgeben
     for user in filtered_users:
         print(user)
 
